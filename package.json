@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-datocms-demo",
-  "description": "Gatsby DatoCMS creative portfolio demo",
+  "name": "luke-frauhiger-site",
+  "description": "Luke Frauhiger is a web designer, full stack developer and software architect that is looking to help companies improve through technology.",
   "version": "1.0.0",
-  "author": "Stefano Verna <s.verna@datocms.com>",
+  "author": "Luke Frauhiger",
   "dependencies": {
     "dotenv": "^8.1.0",
     "gatsby": "^2.19.5",
