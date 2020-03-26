@@ -1,6 +1,6 @@
 {
-  "name": "Gatsby Portfolio Website",
-  "description": "Simple portfolio website built with Gatsby.js and DatoCMS source plugin",
+  "name": "Luke Frauhiger",
+  "description": "Luke Frauhiger is a web designer, full stack developer and software architect that is looking to help companies improve through technology.",
   "previewImage": "https://www.datocms-assets.com/205/1584546486-screen-shot-2020-03-18-at-16-47-38-fullpage.png?crop=top&fit=crop&h=500&w=600&auto=format",
   "datocmsProjectPreviewImage": "https://raw.githubusercontent.com/datocms/gatsby-portfolio/master/preview.png",
   "datocmsProjectId": "604",
