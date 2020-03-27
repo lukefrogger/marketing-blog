@@ -13,14 +13,20 @@ const TemplateWrapper = ({ children }) => {
       query={graphql`
         query LayoutQuery {
           datoCmsSite {
+            domain
+            name
             globalSeo {
+              facebookPageUrl
               siteName
+              titleSuffix
+              twitterAccount
             }
             faviconMetaTags {
               ...GatsbyDatoCmsFaviconMetaTags
             }
           }
           datoCmsHome {
+            copyright
             seoMetaTags {
               ...GatsbyDatoCmsSeoMetaTags
             }
@@ -29,13 +35,20 @@ const TemplateWrapper = ({ children }) => {
                 html
               }
             }
-            copyright
           }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
             edges {
               node {
                 profileType
                 url
+              }
+            }
+          }
+          allDatoCmsSkill {
+            edges {
+              node {
+                slug
+                pageTitle
               }
             }
           }
@@ -47,6 +60,27 @@ const TemplateWrapper = ({ children }) => {
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}
           />
+
+          <div className="container__body">
+            <div className="container__mobile-header">
+              <div className="mobile-header">
+              <div className="mobile-header__logo">
+                  <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
+                </div>
+                <div className="mobile-header__menu">
+                  <a
+                    href="#"
+                    onClick={e => {
+                      e.preventDefault();
+                      setShowMenu(!showMenu);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+            {children}
+          </div>
+
           <div className="container__sidebar">
             <div className="sidebar">
               <h6 className="sidebar__title">
@@ -84,25 +118,7 @@ const TemplateWrapper = ({ children }) => {
               </div>
             </div>
           </div>
-          <div className="container__body">
-            <div className="container__mobile-header">
-              <div className="mobile-header">
-                <div className="mobile-header__menu">
-                  <a
-                    href="#"
-                    onClick={e => {
-                      e.preventDefault();
-                      setShowMenu(!showMenu);
-                    }}
-                  />
-                </div>
-                <div className="mobile-header__logo">
-                  <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
-                </div>
-              </div>
-            </div>
-            {children}
-          </div>
+
         </div>
       )}
     />
