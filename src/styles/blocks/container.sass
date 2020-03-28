@@ -25,16 +25,16 @@ $menu-width: 250px;
     .container.is-open &
       transform: translate3d(-$menu-width, 0, 0)
 
-@media screen and (min-width: 900px)
-  .container
-    display: flex
-    padding: 0
+  .container__desktop-nav
+    display: none 
 
+@media screen and (min-width: 900px)
+  
   .container__mobile-header
     display: none
 
   .container__body
     flex: 1
 
-  .container__body--white
-    background-color: white
+  .container__desktop-nav
+    display: block
