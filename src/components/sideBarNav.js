@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const SideBarNav = ({name}) => {
+const SideBarNav = ({name, navItems}) => {
 
     return (
         <div className="container__sidebar">
@@ -10,12 +10,8 @@ const SideBarNav = ({name}) => {
                 <Link to="/">{name}</Link>
               </h6>
               <ul className="sidebar__menu">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
+                {navItems.map(item => <li><Link to={`/${item.node.slug}`}>{item.node.pageTitle}</Link></li>)}
+                <Link className="button outline-white">Contact Me</Link>
               </ul>
             </div>
         </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700')
+@import url('https://fonts.googleapis.com/css?family=Chakra+Petch:400,700|Montserrat:400,700&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -43,20 +43,38 @@ table
   border-spacing: 0
 
 body
-  font-family: Roboto, Helvetica, Arial, sans-serif
+  font-family: Monsterrat, Helvetica, Arial, sans-serif
   font-size: 16px
   line-height: 1.5
   color: $base-body-color
   background-color: $light-bg-color
 
+h1, h2, h3, h4, h5, h6 
+  font-family: Chakra Petch, Verdana, Tahoma, sans-serif
+  font-weight: bold
+h6
+  font-size: .8rem
+h5
+  font-size: 1rem
+h4
+  font-size: 1.4rem
+h3
+  font-size: 1.8rem
+h2 
+  font-size: 2rem
+h1
+  font-size: 2.2rem
+
+
 img
   max-width: 100%
 
-a 
+a   
+  color: $brand-body-text
+  text-decoration: none
   &:hover
     color: $brand-orange
   &:focus
     outline: none 
   &:visited
     color: $brand-body-text
-  

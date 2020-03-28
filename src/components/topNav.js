@@ -2,16 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
-const TopNav = ({siteName}) => {
+const TopNav = ({siteName, navItems}) => {
     return (
         <div className="container__desktop-nav">
             <div className="desktop-header">
-            <div className="desktop-nav__logo">
+            <div className="desktop-nav__logo logo-text">
                 <Link to="/">{siteName}</Link>
             </div>
             <div className="desktop-nav__menu">
-                <Link to="/">Home</Link>
-                <Link to="/thing">Thing</Link>
+                {navItems.map(item => <Link to={`/${item.node.slug}`}>{item.node.pageTitle}</Link>)}
+                <Link className="button outline-white">Contact Me</Link>
             </div>
             </div>
         </div>
@@ -19,7 +19,8 @@ const TopNav = ({siteName}) => {
 }
 
 TopNav.propTypes = {
-    siteName: PropTypes.string
+    siteName: PropTypes.string,
+    navItems: PropTypes.array
 };
 
   

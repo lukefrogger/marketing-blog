@@ -79,7 +79,7 @@ const TemplateWrapper = ({ children }) => {
                 </div>
               </div>
             </div>  
-            <TopNav siteName={data.datoCmsSite.globalSeo.siteName} />
+            <TopNav siteName={data.datoCmsSite.globalSeo.siteName} navItems={data.allDatoCmsSkill.edges} />
             {children}
           </div>
 
