@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import Img from 'gatsby-image'
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import SideBarNav from "./sideBarNav";
 import TopNav from "./topNav";
+import Header from "./header";
 import "../styles/index.sass";
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, headerDetails }) => {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <StaticQuery
@@ -80,6 +82,7 @@ const TemplateWrapper = ({ children }) => {
               </div>
             </div>  
             <TopNav siteName={data.datoCmsSite.globalSeo.siteName} navItems={data.allDatoCmsSkill.edges} />
+            <Header data={headerDetails} />
             {children}
           </div>
 
@@ -91,7 +94,8 @@ const TemplateWrapper = ({ children }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
+  headerDetails: PropTypes.object
 };
 
 export default TemplateWrapper;

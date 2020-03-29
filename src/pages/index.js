@@ -1,12 +1,17 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Masonry from 'react-masonry-component'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 
 const IndexPage = ({ data }) => (
-  <Layout>
-    <Masonry className="showcase">
+  <Layout headerDetails={
+    {
+      image: data.datoCmsHome.headerImage, 
+      title: data.datoCmsHome.personalName, 
+      subTitle: data.datoCmsHome.overallSkillsListNode.childMarkdownRemark.rawMarkdownBody,
+      fullHeight: true
+    }
+  }>
+    {/* <Masonry className="showcase">
       {data.allDatoCmsWork.edges.map(({ node: work }) => (
         <div key={work.id} className="showcase__item">
           <figure className="card">
@@ -24,7 +29,7 @@ const IndexPage = ({ data }) => (
           </figure>
         </div>
       ))}
-    </Masonry>
+    </Masonry> */}
   </Layout>
 )
 
@@ -32,18 +37,160 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
-      edges {
-        node {
+    datoCmsHome {
+      personalName
+      overallSkillsListNode {
+        childMarkdownRemark {
+          rawMarkdownBody
+        }
+      }
+      headerImage {
+        fluid {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      contact {
+        ... on DatoCmsCategory {
+          category
+          id
+        }
+        ... on DatoCmsTitle {
+          title
+          id
+        }
+        ... on DatoCmsParagraph {
+          id
+          paragraph
+        }
+      }
+      customers {
+        ... on DatoCmsCategory {
+          id
+          category
+        }
+        ... on DatoCmsTitle {
           id
           title
-          slug
-          excerpt
-          coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
+        }
+        ... on DatoCmsParagraph {
+          id
+          paragraph
+        }
+        ... on DatoCmsHorizontalIconSkill {
+          id
+          name
+          description
+          icon
+        }
+      }
+      design {
+        ... on DatoCmsCategory {
+          id
+          category
+        }
+        ... on DatoCmsTitle {
+          id
+          title
+        }
+        ... on DatoCmsParagraph {
+          id
+          paragraph
+        }
+        ... on DatoCmsImage {
+          id
+          source {
+            fluid {
+              src
+              srcSet
+              base64
             }
           }
+        }
+      }
+      discover {
+        ... on DatoCmsImage {
+          id
+          title
+          positionRight
+          positionLeft
+          positionCenter
+          source {
+            fluid {
+              src
+              srcSet
+              base64
+            }
+          }
+        }
+        ... on DatoCmsCategory {
+          id
+          category
+        }
+        ... on DatoCmsTitle {
+          id
+          title
+        }
+        ... on DatoCmsParagraph {
+          id
+          paragraph
+        }
+      }
+      services {
+        ... on DatoCmsCategory {
+          id
+          category
+        }
+        ... on DatoCmsTitle {
+          id
+          title
+        }
+        ... on DatoCmsSkillCard {
+          id
+          skillName
+          skillDescription
+          icon
+        }
+      }
+      software {
+        ... on DatoCmsCategory {
+          id
+          category
+        }
+        ... on DatoCmsTitle {
+          id
+          title
+        }
+        ... on DatoCmsParagraph {
+          id
+          paragraph
+        }
+        ... on DatoCmsImage {
+          id
+          title
+          positionRight
+          positionLeft
+          positionCenter
+          source {
+            fluid {
+              srcSet
+              src
+              base64
+            }
+          }
+        }
+      }
+      writing {
+        ... on DatoCmsCategory {
+          id
+          category
+        }
+        ... on DatoCmsTitle {
+          id
+          title
+        }
+        ... on DatoCmsParagraph {
+          id
+          paragraph
         }
       }
     }
