@@ -8,23 +8,54 @@
         height: 60vh
     &.full-height
         height: 100vh
-    .header-image__title-container 
-        position: absolute
-        top: 50%
-        transform: translate(0%,-50%)
-        font-family: Montserrat
-        font-size: 32px
-        color: white
-        font-weight: bold
-        .title-container__title
-            font-family: Chakra Petch
-            font-size: 95px
-            line-height: 1
-            white-space: pre-wrap
-        .title-container__subTitle
-            margin-top: 15px
-            padding-top: 20px
-            font-size: 24px
-            border-top: 1px solid white
-            font-weight: 400
-    
+.header-image__arrow
+    display: flex
+    justify-content: center
+    position: absolute
+    bottom: 10px
+    left: 50%
+    font-size: 26px
+    color: white
+    transform: translateX(-50%, 0%)
+    border: 2px solid white
+    border-radius: 50%
+    width: 40px
+    height: 40px
+    display: flex
+    justify-content: center
+    align-items: center
+    animation: bounce 3s
+    animation-iteration-count: infinite;
+.header-image__title-container 
+    position: absolute
+    top: 50%
+    transform: translate(0%,-50%)
+    font-family: Montserrat
+    font-size: 32px
+    color: white
+    font-weight: bold
+    .title-container__title
+        font-family: Chakra Petch
+        font-size: 95px
+        line-height: 1
+        white-space: pre-wrap
+    .title-container__subTitle
+        font-size: 24px
+        font-weight: 400
+    .divider
+        width: 40vh
+        border-top: 1px solid white
+        margin: 10px 0 10px 0
+
+@keyframes bounce 
+    0%,
+    25%,
+    50%,
+    75%,
+    100% 
+        bottom: 15px
+    40% 
+        bottom: 5px
+    60%
+        bottom: 10px
+
