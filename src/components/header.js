@@ -14,7 +14,7 @@ const Header = ({ data }) => {
                     imgStyle={{ objectFit: 'cover' }} 
                 />
             </div>
-            <div className="page-wrapper">
+            <div className={`page-wrapper ${data.fullHeight ? 'full-height' : 'half-height'}`}>
                 <div className="header-image__title-container">
                     <div>Hey, I'm</div>
                     <div className="title-container__title">{data.title}</div>

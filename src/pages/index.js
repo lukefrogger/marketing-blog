@@ -1,13 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
+import SectionTitle from "../components/sectionTitle"
+import PageSection from "../components/pageSection"
 
 const IndexPage = ({ data }) => (
   <Layout headerDetails={
     {
-      image: data.datoCmsHome.headerImage, 
-      title: data.datoCmsHome.personalName, 
-      subTitle: data.datoCmsHome.overallSkillsListNode.childMarkdownRemark.rawMarkdownBody,
+      image: data.datoCmsIndexPage.headerImage, 
+      title: data.datoCmsIndexPage.pageTitle, 
+      subTitle: data.datoCmsIndexPage.subTitleNode.childMarkdownRemark.rawMarkdownBody,
       fullHeight: true
     }
   }>
@@ -30,6 +32,12 @@ const IndexPage = ({ data }) => (
         </div>
       ))}
     </Masonry> */}
+    <div className="section discover">
+      
+        <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Discover')} />
+        {/* <SectionTitle category={data.category} title={data.title} /> */}
+
+    </div>
   </Layout>
 )
 
@@ -37,6 +45,43 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
+    datoCmsIndexPage {
+      pageTitle
+      headerImage {
+        fluid {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      subTitleNode {
+        childMarkdownRemark {
+          rawMarkdownBody
+        }
+      }
+      pageSections {
+        category
+        html
+        htmlNode {
+          childMarkdownRemark {
+            html
+            rawMarkdownBody
+          }
+        }
+        image {
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        marketingCard1
+        marketingCard2
+        marketingCard3
+        marketingCard4
+        servicesCard1
+        servicesCard2
+        servicesCard3
+        servicesCard4
+        title
+      }
+    }
     datoCmsHome {
       personalName
       overallSkillsListNode {
