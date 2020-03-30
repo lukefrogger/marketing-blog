@@ -2,14 +2,16 @@ import React from "react"
 import Img from 'gatsby-image'
 import SectionTitle from "./sectionTitle"
 import ServiceCard from "./serviceCard"
+import BlogCarousel from "./blogCarousel"
 
 const PageSection = ({ data }) => {
     const sectionType = data.category;
     const backgroundGrad = Math.floor(Math.random() * (80 - 40)) + 40;
-    const backgroundAngle = Math.floor(Math.random() * (140 - 110)) + 110;
+    const defaultBackgroundAngle = Math.floor(Math.random() * (140 - 110)) + 110;
 
     if(sectionType == 'Discover') {
         const angleColor = '255,255,255';
+        const backgroundAngle = defaultBackgroundAngle;
         return (
             <>  
                 <div 
@@ -41,8 +43,6 @@ const PageSection = ({ data }) => {
                     <div className="flex1">
                         <ServiceCard service={data.servicesCard2} />
                     </div>
-                {/* </div>
-                <div className="flex-grid">  */}
                     <div className="flex1">
                         <ServiceCard service={data.servicesCard3} />
                     </div>
@@ -54,11 +54,20 @@ const PageSection = ({ data }) => {
         )
     }
     else if (sectionType == 'Writing') {
+        const angleColor = '255,197,0';
+        const backgroundAngle = Math.floor(Math.random() * (235 - 210)) + 210;
         return (
-            <div className="page-wrapper">
-                <SectionTitle category={data.category} title={data.title} color="black" />
-                
-            </div>  
+            <>
+                <div 
+                    className="background-angle" 
+                    style={{background: `linear-gradient(${backgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
+                />
+                <div className="page-wrapper">
+                    <SectionTitle category={data.category} title={data.title} color="black" />
+                    <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
+                    <BlogCarousel count={3}/>
+                </div>  
+            </>
         )
     }
     
