@@ -34,7 +34,6 @@ const PageSection = ({ data }) => {
         return (
             <div className="page-wrapper">
                 <SectionTitle category={data.category} title={data.title} color="white" />
-                <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
                 <div className="flex-grid"> 
                     <div className="flex1">
                         <ServiceCard service={data.servicesCard1} />
@@ -51,6 +50,14 @@ const PageSection = ({ data }) => {
                         <ServiceCard service={data.servicesCard4} />
                     </div>
                 </div>
+            </div>  
+        )
+    }
+    else if (sectionType == 'Writing') {
+        return (
+            <div className="page-wrapper">
+                <SectionTitle category={data.category} title={data.title} color="black" />
+                
             </div>  
         )
     }

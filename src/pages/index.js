@@ -37,6 +37,7 @@ const IndexPage = ({ data }) => (
     <div className="section services blue">
         <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Services')} />
     </div>
+    {/*  WORK ON RESPONSIVENESS */}
   </Layout>
 )
 
