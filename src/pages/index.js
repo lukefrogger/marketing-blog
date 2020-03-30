@@ -21,6 +21,9 @@ const IndexPage = ({ data }) => (
     <div className="section writing">
         <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Writing')} />
     </div>
+    <div className="section contact">
+        <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Contact')} />
+    </div>
   </Layout>
 )
 

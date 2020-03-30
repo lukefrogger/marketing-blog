@@ -10,6 +10,9 @@ $flex-gutter: 15px
         flex-basis: $flex-basis
         margin-right: $flex-gutter
         margin-left: $flex-gutter
+        &.two-wide
+            flex-basis: 400px
+
     .flex1
         flex-grow: 1 
         flex-shrink: 1
@@ -22,3 +25,9 @@ $flex-gutter: 15px
     .flex4
         flex-grow: 4
         flex-shrink: 4
+
+@media screen and (max-width: 899px)
+    .flex-grid
+        [class*="flex"] 
+            &.mobile-hidden
+                display: none

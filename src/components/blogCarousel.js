@@ -42,7 +42,7 @@ const BlogCarousel = ({count}) => {
                                 <div className="card__caption">
                                     <div className="card__title">{post.title}</div>
                                     <div className="card__date">{post.meta.createAt}</div>
-                                    <div className="card__description" dangerouslySetInnerHTML={{__html: post.snippitNode.childMarkdownRemark.html}}/>
+                                    <div className="card__description text-clip" dangerouslySetInnerHTML={{__html: post.snippitNode.childMarkdownRemark.html}}/>
                                 </div>
                             </div>
                         </Link>
