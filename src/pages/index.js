@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
-import SectionTitle from "../components/sectionTitle"
 import PageSection from "../components/pageSection"
 
 const IndexPage = ({ data }) => (
@@ -33,10 +32,10 @@ const IndexPage = ({ data }) => (
       ))}
     </Masonry> */}
     <div className="section discover">
-      
         <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Discover')} />
-        {/* <SectionTitle category={data.category} title={data.title} /> */}
-
+    </div>
+    <div className="section services blue">
+        <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Services')} />
     </div>
   </Layout>
 )
