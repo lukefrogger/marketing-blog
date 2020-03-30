@@ -63,7 +63,7 @@ const PageSection = ({ data }) => {
                     style={{background: `linear-gradient(${backgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
                 />
                 <div className="page-wrapper">
-                    <SectionTitle category={data.category} title={data.title} color="black" />
+                    <SectionTitle category={data.category} title={data.title} color="black" catColor="blue" />
                     <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
                     <BlogCarousel count={3}/>
                 </div>  
