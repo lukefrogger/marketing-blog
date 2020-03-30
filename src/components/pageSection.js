@@ -41,8 +41,8 @@ const PageSection = ({ data }) => {
                     <div className="flex1">
                         <ServiceCard service={data.servicesCard2} />
                     </div>
-                </div>
-                <div className="flex-grid"> 
+                {/* </div>
+                <div className="flex-grid">  */}
                     <div className="flex1">
                         <ServiceCard service={data.servicesCard3} />
                     </div>

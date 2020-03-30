@@ -1,23 +1,24 @@
+$flex-basis: 400px
+$flex-gutter: 15px
+    
 .flex-grid 
     display: flex
     flex-flow: row wrap
-    .row 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
+    margin-left: -$flex-gutter
+    margin-right: -$flex-gutter
+    [class*="flex"] 
+        flex-basis: $flex-basis
+        margin-right: $flex-gutter
+        margin-left: $flex-gutter
     .flex1
-        flex: 1 400px
+        flex-grow: 1 
+        flex-shrink: 1
     .flex2
-        flex: 2 400px
+        flex-grow: 2
+        flex-shrink: 2
     .flex3
-        flex: 3 400px
+        flex-grow: 3
+        flex-shrink: 3
     .flex4
-        flex: 4 400px
-    *:not(:last-of-type)
-        margin-right: 20px
-
-@media screen and (max-width: 899px)
-    .flex-grid
-        *:not(:last-of-type)
-            margin-right: 0
+        flex-grow: 4
+        flex-shrink: 4
