@@ -18,11 +18,20 @@ const IndexPage = ({ data }) => (
     <div className="section services blue">
         <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Services')} />
     </div>
-    <div className="section writing">
+    {/* <div className="section writing">
         <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Writing')} />
+    </div> */}
+    <div className="section sofware">
+        <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Software')} />
     </div>
     <div className="section contact">
         <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Contact')} />
+    </div>
+    <div className="section design">
+        <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Design')} />
+    </div>
+    <div className="section customers blue">
+        <PageSection data={data.datoCmsIndexPage.pageSections.find(obj => obj.category == 'Customers')} />
     </div>
   </Layout>
 )
@@ -55,6 +64,11 @@ export const query = graphql`
         image {
           fluid {
             ...GatsbyDatoCmsFluid
+          }
+        }
+        imageGallery {
+          fixed(height: 120) {
+            ...GatsbyDatoCmsFixed
           }
         }
         marketingCard1

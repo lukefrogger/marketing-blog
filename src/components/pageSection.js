@@ -4,6 +4,7 @@ import SectionTitle from "./sectionTitle"
 import ServiceCard from "./serviceCard"
 import BlogCarousel from "./blogCarousel"
 import ContactForm from "./contactForm"
+import MarketingCard from "./marketingCard"
 
 const PageSection = ({ data }) => {
     const sectionType = data.category;
@@ -12,12 +13,11 @@ const PageSection = ({ data }) => {
 
     if(sectionType == 'Discover') {
         const angleColor = '255,255,255';
-        const backgroundAngle = defaultBackgroundAngle;
         return (
             <>  
                 <div 
                     className="background-angle" 
-                    style={{background: `linear-gradient(${backgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
+                    style={{background: `linear-gradient(${defaultBackgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
                 />
                 <div className="page-wrapper">
                     <div className="flex-grid">
@@ -84,6 +84,81 @@ const PageSection = ({ data }) => {
                         <div className="flex1 mobile-hidden"></div>
                     </div>
                     
+                </div>  
+            </>
+        )
+    }
+    else if (sectionType == 'Software') {
+        const angleColor = '255,255,255';
+        return (
+            <>  
+                <div 
+                    className="background-angle" 
+                    style={{background: `linear-gradient(${defaultBackgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
+                />
+                <div className="page-wrapper">
+                    <div className="flex-grid">
+                        <div className="flex5">
+                            <SectionTitle category={data.category} title={data.title} color="blue" />
+                            <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
+                        </div>
+                        <div className="flex1 small-image">
+                            <Img className="top-margin-40" fluid={data.image.fluid} />
+                        </div>
+                    </div>
+                    <div className="flex-grid top-margin-20">
+                        {data.imageGallery.map(image => {
+                            return (
+                                <div className="flex1">
+                                    <Img fixed={image.fixed} />
+                                </div>
+                            )
+                        })}
+                        
+                    </div>
+                    
+                </div>  
+            </>
+        )
+    }
+    else if (sectionType == 'Design') {
+        const angleColor = '255,255,255';
+        return (
+            <>  
+                <div 
+                    className="background-angle" 
+                    style={{background: `linear-gradient(${defaultBackgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
+                />
+                <div className="page-wrapper">
+                    <div className="flex-grid">
+                        <div className="flex5">
+                            <SectionTitle category={data.category} title={data.title} color="blue" />
+                            <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
+                        </div>
+                        <div className="flex1 small-image">
+                            <Img className="top-margin-40" fluid={data.image.fluid} />
+                        </div>
+                    </div>                    
+                </div>  
+            </>
+        )
+    }
+    else if (sectionType == 'Customers') {
+        const angleColor = '255,255,255';
+        return (
+            <>  
+                <div className="page-wrapper">
+                    <SectionTitle category={data.category} title={data.title} color="white" />
+                    <div className="body text-white" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
+                    <div className="text-white top-margin-40">
+                        {[1,2,3,4].map(number => {
+                            return (
+                                <div className="marketingCard">
+                                    <MarketingCard service={data[`marketingCard${number}`]} />
+                                </div>
+                            )
+                        })}       
+                    </div>     
                 </div>  
             </>
         )

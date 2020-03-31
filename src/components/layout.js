@@ -7,6 +7,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import SideBarNav from "./sideBarNav";
 import TopNav from "./topNav";
 import Header from "./header";
+import Footer from "./footer";
 import "../styles/index.sass";
 
 const TemplateWrapper = ({ children, headerDetails }) => {
@@ -85,7 +86,7 @@ const TemplateWrapper = ({ children, headerDetails }) => {
             <Header data={headerDetails} />
             {children}
           </div>
-
+          <Footer />
           <SideBarNav name={data.datoCmsSite.globalSeo.siteName} navItems={data.allDatoCmsSkill.edges} />
         </div>
       )}
