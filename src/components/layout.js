@@ -28,15 +28,9 @@ const TemplateWrapper = ({ children, headerDetails }) => {
               ...GatsbyDatoCmsFaviconMetaTags
             }
           }
-          datoCmsHome {
-            copyright
+          datoCmsIndexPage {
             seoMetaTags {
               ...GatsbyDatoCmsSeoMetaTags
-            }
-            introTextNode {
-              childMarkdownRemark {
-                html
-              }
             }
           }
           allDatoCmsSocialProfile {
@@ -62,7 +56,7 @@ const TemplateWrapper = ({ children, headerDetails }) => {
         <div className={`container ${showMenu ? "is-open" : ""}`}>
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
-            seo={data.datoCmsHome.seoMetaTags}
+            seo={data.datoCmsIndexPage.seoMetaTags}
           />
 
           <div className="container__body">

@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => (
     {data.datoCmsIndexPage.pageSections.map(section => {
       let loweredCat = section.category.toLowerCase();
       return (
-        <div className={`section ${loweredCat} ${loweredCat == 'services' || loweredCat == 'customers' ? 'blue' : null}`}>
+        <div className={`section ${loweredCat} ${loweredCat == 'services' || loweredCat == 'customers' ? 'blue' : ''}`}>
             <PageSection data={section} />
         </div>
       )

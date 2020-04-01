@@ -8,7 +8,7 @@ const Footer = ({social, navItems}) => {
                 <div className="flex-grid">
                     <div className="flex1">
                         <h4>Luke Frauhiger</h4>
-                        <p><Link to="about">About Me</Link></p>
+                        {/* <p><Link to="about">About Me</Link></p> */}
                         <p><Link to="">Resume</Link></p>
                         {/* <p><Link to="">Technology Blog</Link></p> */}
                     </div>

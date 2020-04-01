@@ -5,20 +5,15 @@ import ServiceCard from "./serviceCard"
 import BlogCarousel from "./blogCarousel"
 import ContactForm from "./contactForm"
 import MarketingCard from "./marketingCard"
+import BackgroundAngle from "./backgroundAngle"
 
 const PageSection = ({ data }) => {
     const sectionType = data.category;
-    const backgroundGrad = Math.floor(Math.random() * (80 - 40)) + 40;
-    const defaultBackgroundAngle = Math.floor(Math.random() * (140 - 110)) + 110;
 
     if(sectionType == 'Discover') {
-        const angleColor = '255,255,255';
         return (
             <>  
-                <div 
-                    className="background-angle" 
-                    style={{background: `linear-gradient(${defaultBackgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
-                />
+                <BackgroundAngle color="255,255,255" slash="forward" />
                 <div className="page-wrapper">
                     <div className="flex-grid">
                         <div className="flex1 picture">
@@ -55,14 +50,9 @@ const PageSection = ({ data }) => {
         )
     }
     else if (sectionType == 'Writing') {
-        const angleColor = '255,197,0';
-        const backgroundAngle = Math.floor(Math.random() * (235 - 210)) + 210;
         return (
             <>
-                <div 
-                    className="background-angle" 
-                    style={{background: `linear-gradient(${backgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
-                />
+                <BackgroundAngle color="255,197,0" slash="back" />
                 <div className="page-wrapper">
                     <SectionTitle category={data.category} title={data.title} color="black" catColor="blue" />
                     <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
@@ -89,13 +79,9 @@ const PageSection = ({ data }) => {
         )
     }
     else if (sectionType == 'Software') {
-        const angleColor = '255,255,255';
         return (
             <>  
-                <div 
-                    className="background-angle" 
-                    style={{background: `linear-gradient(${defaultBackgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
-                />
+                <BackgroundAngle color="255,255,255" slash="forward" />
                 <div className="page-wrapper">
                     <div className="flex-grid">
                         <div className="flex5">
@@ -122,13 +108,9 @@ const PageSection = ({ data }) => {
         )
     }
     else if (sectionType == 'Design') {
-        const angleColor = '255,255,255';
         return (
             <>  
-                <div 
-                    className="background-angle" 
-                    style={{background: `linear-gradient(${defaultBackgroundAngle}deg, rgba(${angleColor},1) ${backgroundGrad}%, rgba(255,255,255,0) ${backgroundGrad}%)`}}
-                />
+                <BackgroundAngle color="255,255,255" slash="forward" />
                 <div className="page-wrapper">
                     <div className="flex-grid">
                         <div className="flex5">
@@ -144,7 +126,6 @@ const PageSection = ({ data }) => {
         )
     }
     else if (sectionType == 'Customers') {
-        const angleColor = '255,255,255';
         return (
             <>  
                 <div className="page-wrapper">

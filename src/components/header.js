@@ -16,8 +16,8 @@ const Header = ({ data }) => {
             </div>
             <div className={`page-wrapper ${data.fullHeight ? 'full-height' : 'half-height'}`}>
                 <div className="header-image__title-container">
-                    <div>Hey, I'm</div>
-                    <div className="title-container__title">{data.title}</div>
+                    { data.fullHeight && <div>Hey, I'm</div> }
+                    <div className={`title-container__title ${data.fullHeight == false ? 'smaller' : '' }`}>{data.title}</div>
                     <div className="divider" />
                     <div className="title-container__subTitle">
                         {data.subTitle.split('\n').map((item, i) => {
@@ -25,9 +25,11 @@ const Header = ({ data }) => {
                         })}
                     </div>
                 </div>
-                <div className="header-image__arrow">
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </div>
+                { data.fullHeight && 
+                    <div className="header-image__arrow">
+                        <FontAwesomeIcon icon={faChevronDown} />
+                    </div> 
+                }
             </div>
         </>
     )
