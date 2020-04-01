@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import Img from 'gatsby-image'
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import SideBarNav from "./sideBarNav";
@@ -40,11 +39,12 @@ const TemplateWrapper = ({ children, headerDetails }) => {
               }
             }
           }
-          allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
+          allDatoCmsSocialProfile {
             edges {
               node {
                 profileType
                 url
+                display
               }
             }
           }
@@ -86,7 +86,7 @@ const TemplateWrapper = ({ children, headerDetails }) => {
             <Header data={headerDetails} />
             {children}
           </div>
-          <Footer />
+          <Footer social={data.allDatoCmsSocialProfile} navItems={data.allDatoCmsSkill.edges} />
           <SideBarNav name={data.datoCmsSite.globalSeo.siteName} navItems={data.allDatoCmsSkill.edges} />
         </div>
       )}

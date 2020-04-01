@@ -5,9 +5,17 @@ import Img from 'gatsby-image'
 import Layout from "../components/layout"
 
 const About = ({ data: { about } }) => (
-  <Layout>
-    <article className="sheet">
-      <HelmetDatoCms seo={about.seoMetaTags} />
+  <Layout headerDetails={
+    {
+      image: about.headerImage, 
+      title: about.title, 
+      subTitle: about.subTitleNode.childMarkdownRemark.rawMarkdownBody,
+      fullHeight: false
+    }
+  }>
+    <HelmetDatoCms seo={about.seoMetaTags} />
+    {/* <article className="sheet">
+      
       <div className="sheet__inner">
         <h1 className="sheet__title">{about.title}</h1>
         <p className="sheet__lead">{about.subtitle}</p>
@@ -21,7 +29,7 @@ const About = ({ data: { about } }) => (
           }}
         />
       </div>
-    </article>
+    </article> */}
   </Layout>
 )
 

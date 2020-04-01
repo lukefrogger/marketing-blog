@@ -11,7 +11,7 @@ const TopNav = ({siteName, navItems}) => {
             </div>
             <div className="desktop-nav__menu">
                 {navItems.map(item => <Link to={`/${item.node.slug}`}>{item.node.pageTitle}</Link>)}
-                <Link className="button outline-white">Contact Me</Link>
+                <Link to="about" className="button outline-white">Contact Me</Link>
             </div>
             </div>
         </div>
