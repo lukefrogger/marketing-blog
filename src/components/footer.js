@@ -14,14 +14,14 @@ const Footer = ({social, navItems}) => {
                     </div>
                     <div className="flex1">
                         <h4>Services</h4>
-                        {navItems.map(item => <p><Link to={`/${item.node.slug}`}>{item.node.pageTitle}</Link></p>)}
+                        {navItems.map((item, i) => <p key={i} ><Link to={`/${item.node.slug}`}>{item.node.pageTitle}</Link></p>)}
                     </div>
                     <div className="flex1">
                         <h4>Contact</h4>
                         <p><Link to="">Contact Form</Link></p>
-                        {social.edges.map(profile => {
+                        {social.edges.map((profile, i) => {
                             return (
-                                <p><a href={profile.node.url}>{profile.node.display}</a></p>
+                                <p key={i}><a href={profile.node.url}>{profile.node.display}</a></p>
                             )
                         })}
                     </div>

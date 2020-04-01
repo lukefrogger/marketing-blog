@@ -88,9 +88,4 @@ const TemplateWrapper = ({ children, headerDetails }) => {
   );
 };
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.object,
-  headerDetails: PropTypes.object
-};
-
 export default TemplateWrapper;

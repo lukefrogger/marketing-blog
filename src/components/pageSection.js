@@ -93,9 +93,9 @@ const PageSection = ({ data }) => {
                         </div>
                     </div>
                     <div className="flex-grid top-margin-20">
-                        {data.imageGallery.map(image => {
+                        {data.imageGallery.map((image, i) => {
                             return (
-                                <div className="flex1">
+                                <div key={i} className="flex1">
                                     <Img fixed={image.fixed} />
                                 </div>
                             )
@@ -132,9 +132,9 @@ const PageSection = ({ data }) => {
                     <SectionTitle category={data.category} title={data.title} color="white" />
                     <div className="body text-white" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
                     <div className="text-white top-margin-40">
-                        {[1,2,3,4].map(number => {
+                        {[1,2,3,4].map((number, i) => {
                             return (
-                                <div className="marketingCard">
+                                <div key={i} className="marketingCard">
                                     <MarketingCard service={data[`marketingCard${number}`]} />
                                 </div>
                             )

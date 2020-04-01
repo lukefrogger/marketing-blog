@@ -10,7 +10,7 @@ const SideBarNav = ({name, navItems}) => {
                 <Link to="/">{name}</Link>
               </h6>
               <ul className="sidebar__menu">
-                {navItems.map(item => <li><Link to={`/${item.node.slug}`}>{item.node.pageTitle}</Link></li>)}
+                {navItems.map((item, i) => <li key={i}><Link to={`/${item.node.slug}`}>{item.node.pageTitle}</Link></li>)}
                 <Link className="button outline-white">Contact Me</Link>
               </ul>
             </div>
