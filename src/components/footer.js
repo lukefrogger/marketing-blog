@@ -18,7 +18,7 @@ const Footer = ({social, navItems}) => {
                     </div>
                     <div className="flex1">
                         <h4>Contact</h4>
-                        <p><Link to="">Contact Form</Link></p>
+                        <p><Link to="contact">Contact Form</Link></p>
                         {social.edges.map((profile, i) => {
                             return (
                                 <p key={i}><a href={profile.node.url}>{profile.node.display}</a></p>
