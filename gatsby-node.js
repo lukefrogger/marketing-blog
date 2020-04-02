@@ -18,7 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       result.data.allDatoCmsSkill.edges.map(({ node: skill }) => {
         createPage({
-          path: `services/${skill.slug}`,
+          path: `/${skill.slug}`,
           component: path.resolve(`./src/templates/skill.js`),
           context: {
             slug: skill.slug,
