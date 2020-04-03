@@ -43,7 +43,7 @@ const TemplateWrapper = ({ children, headerDetails }) => {
               }
             }
           }
-          allDatoCmsSkill(sort: {fields: slug}) {
+          allDatoCmsSkill(sort: {fields: slug, order: DESC}) {
             edges {
               node {
                 slug
