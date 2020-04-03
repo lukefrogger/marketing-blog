@@ -10,7 +10,7 @@ import BackgroundAngle from "./backgroundAngle"
 const PageSection = ({ data }) => {
     const sectionType = data.category;
 
-    if(sectionType == 'Discover') {
+    if(sectionType === 'Discover') {
         return (
             <>  
                 <BackgroundAngle color="255,255,255" slash="forward" />
@@ -28,7 +28,7 @@ const PageSection = ({ data }) => {
             </>
         )
     } 
-    else if (sectionType == 'Services') {
+    else if (sectionType === 'Services') {
         return (
             <div className="page-wrapper">
                 <SectionTitle category={data.category} title={data.title} color="white" />
@@ -49,7 +49,7 @@ const PageSection = ({ data }) => {
             </div>  
         )
     }
-    else if (sectionType == 'Writing') {
+    else if (sectionType === 'Writing') {
         return (
             <>
                 <BackgroundAngle color="255,197,0" slash="back" />
@@ -61,7 +61,7 @@ const PageSection = ({ data }) => {
             </>
         )
     }
-    else if (sectionType == 'Contact') {
+    else if (sectionType === 'Contact') {
         return (
             <>
                 <Img className="background-image" fluid={data.image.fluid} style={{position: 'absolute'}} />
@@ -78,7 +78,7 @@ const PageSection = ({ data }) => {
             </>
         )
     }
-    else if (sectionType == 'Software') {
+    else if (sectionType === 'Software') {
         return (
             <>  
                 <BackgroundAngle color="255,255,255" slash="forward" />
@@ -107,7 +107,7 @@ const PageSection = ({ data }) => {
             </>
         )
     }
-    else if (sectionType == 'Design') {
+    else if (sectionType === 'Design') {
         return (
             <>  
                 <BackgroundAngle color="255,255,255" slash="forward" />
@@ -125,7 +125,7 @@ const PageSection = ({ data }) => {
             </>
         )
     }
-    else if (sectionType == 'Customers') {
+    else if (sectionType === 'Customers') {
         return (
             <>  
                 <div className="page-wrapper">

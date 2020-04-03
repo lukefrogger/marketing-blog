@@ -5,7 +5,7 @@ const BackgroundAngle = ({color, slash}) => {
     const forwardSlash = Math.floor(Math.random() * (140 - 110)) + 110;
     const backSlash = Math.floor(Math.random() * (235 - 210)) + 210;
 
-    const angle = slash == 'forward' ? forwardSlash : backSlash;
+    const angle = slash === 'forward' ? forwardSlash : backSlash;
     return (
         <div 
             className="background-angle" 

@@ -17,7 +17,7 @@ const Header = ({ data }) => {
             <div className={`page-wrapper ${data.fullHeight ? 'full-height' : 'half-height'}`}>
                 <div className="header-image__title-container">
                     { data.fullHeight && <div>Hey, I'm</div> }
-                    <div className={`title-container__title ${data.fullHeight == false ? 'smaller' : '' }`}>{data.title}</div>
+                    <div className={`title-container__title ${data.fullHeight === false ? 'smaller' : '' }`}>{data.title}</div>
                     <div className="divider" />
                     <div className="title-container__subTitle">
                         {data.subTitle.split('\n').map((item, i) => {
