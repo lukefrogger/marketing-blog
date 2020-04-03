@@ -41,7 +41,6 @@ export const query = graphql`
       }
       pageSections {
         category
-        html
         htmlNode {
           childMarkdownRemark {
             html
