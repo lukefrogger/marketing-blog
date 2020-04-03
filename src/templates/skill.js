@@ -4,7 +4,8 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import BackgroundAngle from "../components/backgroundAngle"
-import SectionTitle from "../components/sectionTitle";
+import SectionTitle from "../components/sectionTitle"
+import ContactBanner from "../components/contactBanner"
 
 export default ({ data: {skill} }) => (
   <Layout headerDetails={
@@ -20,7 +21,7 @@ export default ({ data: {skill} }) => (
       <BackgroundAngle color="255,255,255" slash="forward" />
       <div className="page-wrapper ">
         <SectionTitle category={skill.category} title={skill.pageTitle} color="blue" />
-        <p className="bottom-margin-40" dangerouslySetInnerHTML={{__html: skill.description}} />
+        <h5 className="bottom-margin-40" dangerouslySetInnerHTML={{__html: skill.description}} />
         {
           skill.body.map(section => {
             if(section.imageCenter) {
@@ -66,6 +67,7 @@ export default ({ data: {skill} }) => (
           })
         }
       </div>
+      <ContactBanner />
     </div>
   </Layout>
 )
