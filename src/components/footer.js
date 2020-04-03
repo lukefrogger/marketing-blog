@@ -14,7 +14,7 @@ const Footer = ({social, navItems}) => {
                     </div>
                     <div className="flex1">
                         <h4>Services</h4>
-                        {navItems.map((item, i) => <p key={i} ><Link to={`/${item.node.slug}`}>{item.node.pageTitle}</Link></p>)}
+                        {navItems.map((item, i) => <p key={i} ><Link to={`/${item.node.slug}`}>{item.node.title}</Link></p>)}
                     </div>
                     <div className="flex1">
                         <h4>Contact</h4>

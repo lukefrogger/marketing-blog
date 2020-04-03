@@ -10,7 +10,7 @@ const TopNav = ({siteName, navItems}) => {
                 <Link to="/">{siteName}</Link>
             </div>
             <div className="desktop-nav__menu">
-                {navItems.map((item, i) => <Link key={i} to={`/${item.node.slug}`}>{item.node.pageTitle}</Link>)}
+                {navItems.map((item, i) => <Link key={i} to={`/${item.node.slug}`}>{item.node.title}</Link>)}
                 <Link to="contact" className="button outline-white">Contact Me</Link>
             </div>
             </div>

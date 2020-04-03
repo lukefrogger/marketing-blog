@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
@@ -8,6 +7,8 @@ import TopNav from "./topNav";
 import Header from "./header";
 import Footer from "./footer";
 import "../styles/index.sass";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const TemplateWrapper = ({ children, headerDetails }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -42,11 +43,11 @@ const TemplateWrapper = ({ children, headerDetails }) => {
               }
             }
           }
-          allDatoCmsSkill {
+          allDatoCmsSkill(sort: {fields: slug}) {
             edges {
               node {
                 slug
-                pageTitle
+                title
               }
             }
           }
@@ -66,13 +67,24 @@ const TemplateWrapper = ({ children, headerDetails }) => {
                   <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
                 </div>
                 <div className="mobile-header__menu">
-                    <a
+                    {/* <a
                       href="#"
                       onClick={e => {
                         e.preventDefault();
                         setShowMenu(!showMenu);
                       }}
-                    />
+                    /> */}
+                    {showMenu ?
+                      <FontAwesomeIcon icon={faTimes} onClick={e => {
+                        e.preventDefault();
+                        setShowMenu(!showMenu);
+                      }}/>
+                      :
+                      <FontAwesomeIcon icon={faBars} onClick={e => {
+                        e.preventDefault();
+                        setShowMenu(!showMenu);
+                      }}/>
+                    }
                 </div>
               </div>
             </div>  
