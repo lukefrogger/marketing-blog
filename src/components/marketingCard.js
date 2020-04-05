@@ -1,7 +1,7 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilter, faHandHoldingUsd, faHashtag, faImage } from '@fortawesome/free-solid-svg-icons'
-import { faGoogle } from "@fortawesome/free-brands-svg-icons"
+import { faFilter, faHandHoldingUsd, faHashtag, faImage, faSync, faCode, faTools } from '@fortawesome/free-solid-svg-icons'
+import { faGoogle, faSalesforce } from "@fortawesome/free-brands-svg-icons"
 
 const MarketingCard = ({ service }) => {
     const setIcon = (iconName) => {
@@ -14,6 +14,14 @@ const MarketingCard = ({ service }) => {
                 return <FontAwesomeIcon icon={faHashtag} />
             case 'google':
                 return <FontAwesomeIcon icon={faGoogle} />
+            case 'sync':
+                return <FontAwesomeIcon icon={faSync} />
+            case 'code':
+                return <FontAwesomeIcon icon={faCode} />
+            case 'tools':
+                return <FontAwesomeIcon icon={faTools} />
+            case 'salesforce':
+                return <FontAwesomeIcon icon={faSalesforce} />
             default:
                 return <FontAwesomeIcon icon={faImage} />
         }

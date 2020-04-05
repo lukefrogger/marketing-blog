@@ -33,18 +33,13 @@ const PageSection = ({ data }) => {
             <div className="page-wrapper">
                 <SectionTitle category={data.category} title={data.title} color="white" />
                 <div className="flex-grid"> 
-                    <div className="flex1 two-wide">
-                        <ServiceCard service={data.servicesCard1} />
-                    </div>
-                    <div className="flex1 two-wide">
-                        <ServiceCard service={data.servicesCard2} />
-                    </div>
-                    <div className="flex1 two-wide">
-                        <ServiceCard service={data.servicesCard3} />
-                    </div>
-                    <div className="flex1 two-wide">
-                        <ServiceCard service={data.servicesCard4} />
-                    </div>
+                    {[1,2,3,4].map(num => {
+                        return (
+                            <div key={num} className="flex1 two-wide">
+                                <ServiceCard service={data[`servicesCard${num}`]} />
+                            </div>
+                        )
+                    })}
                 </div>
             </div>  
         )
@@ -54,7 +49,7 @@ const PageSection = ({ data }) => {
             <>
                 <BackgroundAngle color="255,197,0" slash="back" />
                 <div className="page-wrapper">
-                    <SectionTitle category={data.category} title={data.title} color="black" catColor="blue" />
+                    <SectionTitle category={data.category} title={data.title} color="black" catColor="blue" link="blog" />
                     <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
                     <BlogCarousel count={3}/>
                 </div>  
@@ -66,7 +61,7 @@ const PageSection = ({ data }) => {
             <>
                 <Img className="background-image" fluid={data.image.fluid} style={{position: 'absolute'}} />
                 <div className="page-wrapper text-center">
-                    <SectionTitle category={data.category} title={data.title} color="white" />
+                    <SectionTitle category={data.category} title={data.title} color="white" link="contact"  />
                     <div className="body text-white" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
                     <div className="flex-grid">
                         <div className="flex1 mobile-hidden"></div>
@@ -85,24 +80,22 @@ const PageSection = ({ data }) => {
                 <div className="page-wrapper">
                     <div className="flex-grid">
                         <div className="flex5">
-                            <SectionTitle category={data.category} title={data.title} color="blue" />
+                            <SectionTitle category={data.category} title={data.title} color="blue" link="software-consulting" />
                             <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
                         </div>
                         <div className="flex1 small-image">
                             <Img className="top-margin-40" fluid={data.image.fluid} />
                         </div>
                     </div>
-                    <div className="flex-grid top-margin-20">
-                        {data.imageGallery.map((image, i) => {
+                    <div className="top-margin-20">
+                        {[1,2,3,4].map(num => {
                             return (
-                                <div key={i} className="flex1">
-                                    <Img fixed={image.fixed} />
+                                <div key={num} className="marketingCard">
+                                    <MarketingCard service={data[`marketingCard${num}`]} />
                                 </div>
                             )
                         })}
-                        
                     </div>
-                    
                 </div>  
             </>
         )
@@ -114,7 +107,7 @@ const PageSection = ({ data }) => {
                 <div className="page-wrapper">
                     <div className="flex-grid">
                         <div className="flex5">
-                            <SectionTitle category={data.category} title={data.title} color="blue" />
+                            <SectionTitle category={data.category} title={data.title} color="blue"  link="web-design" />
                             <div className="body" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
                         </div>
                         <div className="flex1 small-image">
@@ -129,10 +122,10 @@ const PageSection = ({ data }) => {
         return (
             <>  
                 <div className="page-wrapper">
-                    <SectionTitle category={data.category} title={data.title} color="white" />
+                    <SectionTitle category={data.category} title={data.title} color="white" link="local-marketing" />
                     <div className="body text-white" dangerouslySetInnerHTML={{__html: data.htmlNode.childMarkdownRemark.html}} />
                     <div className="text-white top-margin-40">
-                        {[1,2,3,4].map((number, i) => {
+                        {[1,2].map((number, i) => {
                             return (
                                 <div key={i} className="marketingCard">
                                     <MarketingCard service={data[`marketingCard${number}`]} />

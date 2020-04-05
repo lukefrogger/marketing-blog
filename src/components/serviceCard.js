@@ -1,6 +1,6 @@
 import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCrosshairs, faPencilRuler, faChartLine, faSitemap, faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
+import { faCrosshairs, faPencilRuler, faChartLine, faSitemap, faGlobeAmericas, faCommentDollar } from '@fortawesome/free-solid-svg-icons'
 
 const ServiceCard = ({ service }) => {
     const setIcon = (iconName) => {
@@ -13,6 +13,8 @@ const ServiceCard = ({ service }) => {
                 return <FontAwesomeIcon icon={faChartLine} />
             case 'Sitemap':
                 return <FontAwesomeIcon icon={faSitemap} />
+            case 'MoneyBubble':
+                return <FontAwesomeIcon icon={faCommentDollar} />
             default:
                 return <FontAwesomeIcon icon={faGlobeAmericas} />
         }
