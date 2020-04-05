@@ -43,7 +43,7 @@ export default ({ data }) => {
                     <div className="flex-grid bottom-margin-40">
                       <div className="flex1">
                         {[1,2,3,4].map(num => {
-                            <MarketingCard key={num} service={homeSection[`marketingCard${num}`]} />
+                          return <MarketingCard key={num} service={homeSection[`marketingCard${num}`]} />
                         })}
                       </div>
                     </div>
