@@ -1,38 +1,88 @@
 .button
-    padding: 0.45rem 1rem
+    position: relative
+    padding: 0.55rem 1.5rem
     border-radius: 2px;
     font-size: 14px
     margin: 0 5px
     cursor: pointer
+    overflow: hidden
+    transition: 0.1s ease-in-out
+    z-index: 1
+    &:after
+        content: ''
+        position: absolute
+        bottom: -1px
+        left: -10%
+        height: 120%
+        width: 0
+        transform: skewX(-30deg)
+        z-index: -1
+        transition: .2s ease-in-out
+    &:hover:after
+      left: -10%
+      width: 125%
+
     &.solid-blue
         background: $brand-blue
         color: white
         border: 1px solid $brand-blue
+        &:hover
+            color: $brand-blue
+        &:after
+            background: white   
     &.outline-blue
         color: $brand-blue
         border: 1px solid $brand-blue
         background: none
+        &:hover
+            color: white
+        &:after
+            background: $brand-blue
     &.solid-orange
         background: $brand-orange
         color: $brand-body-text
         border: 1px solid $brand-orange
+        &:hover
+            color: $brand-orange
+        &:after
+            background: $brand-body-text   
     &.outline-orange
         color: $brand-orange
         border: 1px solid $brand-orange
         background: none
+        &:hover
+            color: $brand-body-text
+        &:after
+            background: $brand-orange
     &.solid-white
         background: white
         color: $brand-body-text
         border: 1px solid white
+        &:hover
+            color: white
+        &:after
+            background: $brand-body-text
     &.outline-white
         color: white
         border: 1px solid white
         background: none
+        &:hover
+            color: $brand-body-text
+        &:after
+            background: white
     &.solid-black
         background: $brand-body-text
         color: white
         border: 1px solid $brand-body-text
+        &:hover
+            color: $brand-body-text
+        &:after
+            background: white
     &.outline-black
         color: $brand-body-text
         border: 1px solid $brand-body-text
         background: none
+        &:hover
+            color: white
+        &:after
+            background: $brand-body-text
