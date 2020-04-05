@@ -26,6 +26,9 @@ const MarketingCard = ({ service }) => {
                 return <FontAwesomeIcon icon={faImage} />
         }
     }
+    if(service === null) {
+        return '';
+    }
 
     return (
         <div className="marketing-card">
