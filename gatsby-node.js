@@ -14,6 +14,13 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allDatoCmsPortfolio {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
     `).then(result => {
       result.data.allDatoCmsSkill.edges.map(({ node: skill }) => {
@@ -22,6 +29,15 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/skill.js`),
           context: {
             slug: skill.slug,
+          },
+        })
+      })
+      result.data.allDatoCmsPortfolio.edges.map(({ node: portfolio }) => {
+        createPage({
+          path: `/portfolio/${portfolio.slug}`,
+          component: path.resolve(`./src/templates/portfolio.js`),
+          context: {
+            slug: portfolio.slug,
           },
         })
       })
