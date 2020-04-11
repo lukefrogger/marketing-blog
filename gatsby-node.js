@@ -21,6 +21,13 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allDatoCmsBlogPost {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
     `).then(result => {
       result.data.allDatoCmsSkill.edges.map(({ node: skill }) => {
@@ -31,7 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
             slug: skill.slug,
           },
         })
-      })
+      });
       result.data.allDatoCmsPortfolio.edges.map(({ node: portfolio }) => {
         createPage({
           path: `/portfolio/${portfolio.slug}`,
@@ -40,7 +47,16 @@ exports.createPages = ({ graphql, actions }) => {
             slug: portfolio.slug,
           },
         })
-      })
+      });
+      result.data.allDatoCmsBlogPost.edges.map(({ node: post }) => {
+        createPage({
+          path: `/blog/${post.slug}`,
+          component: path.resolve(`./src/templates/blog-post.js`),
+          context: {
+            slug: post.slug,
+          },
+        })
+      });
       resolve()
     })
   })

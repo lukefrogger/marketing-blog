@@ -1,7 +1,7 @@
 import React from 'react'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from "../components/layout"
 import BackgroundAngle from "../components/backgroundAngle"
 import SectionTitle from "../components/sectionTitle"
@@ -83,6 +83,11 @@ export default ({ data }) => {
                     </div>
                     <div className="flex4">
                       <div dangerouslySetInnerHTML={{__html: section.textNode.childMarkdownRemark.html}} />
+                      {section.pageLink && 
+                        <div style={{display: 'flex', marginTop: '15px'}}>
+                          <Link to={section.pageLink} className="button outline-blue">Read More</Link>
+                        </div>
+                      }
                     </div>
                   </div>
                 )
@@ -129,6 +134,7 @@ export const query = graphql`
         ...GatsbyDatoCmsSeoMetaTags
       }
       body {
+        pageLink
         imageCenter
         imageLeft
         imageRight
