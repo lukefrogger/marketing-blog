@@ -31,7 +31,7 @@ export default ({ data: {post} }) => (
                     else {
                         return (
                             <div key={i} className="bottom-margin-20">
-                                <Img className="top-margin-40" fluid={record.source.fluid} objectFit="cover" style={{'box-shadow': '2px 4px 10px rgba(51, 51, 51, 0.3'}}/>
+                                <Img className="top-margin-20" fixed={record.source.fixed} objectFit="cover" style={{boxShadow: '2px 4px 10px rgba(51, 51, 51, 0.3'}}/>
                             </div>
                         )
                     }
@@ -58,8 +58,8 @@ export const query = graphql`
                 ... on DatoCmsImage {
                     id
                     source {
-                        fluid {
-                            ...GatsbyDatoCmsFluid
+                        fixed(width: 800) {
+                            ...GatsbyDatoCmsFixed
                         }
                     }
                 }

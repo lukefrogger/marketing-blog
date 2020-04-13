@@ -27,6 +27,29 @@ module.exports = {
         output: `/sitemap.xml`,
         exclude: [`/404/`, `/dev-404-page/`, `/404.html`]
       }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+              prompt: {
+                user: "root",
+                host: "localhost",
+                global: false,
+              },
+              escapeEntities: {},
+            },
+          },
+        ],
+      }
     }
-  ],
+  ]
 }
