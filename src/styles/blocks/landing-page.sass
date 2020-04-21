@@ -1,0 +1,109 @@
+.single-page-500
+    .background-angle
+        z-index: -1
+    .one-third
+        height: 100vh
+        display: flex
+        flex-flow: column
+        justify-content: flex-start
+        position: fixed
+        top: 0
+        left: 0
+        width: 500px
+        .brand
+            padding: 20px
+            font-family: Chakra Petch
+            color: white
+            font-size: 20px
+            font-weight: bold
+            .type
+                font-size: 14px
+                color: $brand-orange
+        form
+            margin: 4rem;
+            border: 1px solid orange;
+            border-radius: 2px;
+            padding: 2rem 2.7rem
+            .button
+                animation: shake 5s infinite
+                transform: rotateZ(10deg)
+
+    .two-thirds
+        color: $brand-blue
+        margin-left: 500px
+        position: relative
+        .social-items
+            padding-left: 20px
+            font-size: 24px
+            padding-top: 20px
+            > *
+                margin-right: 15px
+        .wrapper
+            margin: 50px 100px
+            .line
+                border: 1px solid $brand-blue
+                width: 8rem
+                margin: 20px 0
+            .values
+                display: flex
+                flex-flow: column nowrap
+                font-size: 18px
+                svg
+                    margin-right: 10px
+                .item:not(:last-of-type)
+                    margin-bottom: 15px
+        .perk-list
+            display: flex
+            flex-flow: row nowrap
+            justify-content: space-around
+            h3
+                margin-bottom: 20px
+            .perk
+                color: $brand-body-text
+                .title
+                    margin-bottom: 15px
+                margin: 20px 40px
+                display: flex
+                flex-flow: column nowrap
+                justify-content: flex-start
+                align-items: center
+
+
+.blue-background
+    background: #0d58a6
+
+@media screen and (max-width: 1100px) 
+    .single-page-500
+        .one-third
+            width: 100%
+            position: relative
+            justify-content: start
+            height: auto
+        .two-thirds
+            width: 100%
+            margin-left: 0
+            .background-angle
+                bottom: 0
+
+
+@keyframes shake 
+    0%,
+    10%,
+    20%,
+    30%,
+    40%,
+        transform: rotateZ(0deg)
+    42%
+        transform: rotateZ(1deg)
+    44%
+        transform: rotateZ(-1deg)
+    46%
+        transform: rotateZ(1deg)
+    48%
+        transform: rotateZ(-1deg)
+    50%
+        transform: rotateZ(1deg)
+    52%
+        transform: rotateZ(0deg)
+    100%
+        transform: rotateZ(0deg)

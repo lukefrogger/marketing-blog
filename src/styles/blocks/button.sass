@@ -3,11 +3,14 @@
     padding: 0.55rem 1.5rem
     border-radius: 2px;
     font-size: 14px
-    margin: 0 5px
     cursor: pointer
     overflow: hidden
     transition: 0.1s ease-in-out
     z-index: 1
+    * &.full-width
+        width: 100%;
+    &:not(:last-of-type)
+        margin: 0 5px
     &:after
         content: ''
         position: absolute
@@ -40,10 +43,11 @@
             background: $brand-blue
     &.solid-orange
         background: $brand-orange
-        color: $brand-body-text
+        color: white
         border: 1px solid $brand-orange
         &:hover
             color: $brand-orange
+            border: 1px solid $brand-orange
         &:after
             background: $brand-body-text   
     &.outline-orange

@@ -50,6 +50,20 @@ module.exports = {
           },
         ],
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: '2144509482321988',
+      },
+    },
+    {
+      resolve: "gatsby-plugin-hubspot",
+      options: {
+          trackingCode: "7544091",
+          respectDNT: true,
+          productionOnly: true,
+      },
+    },
   ]
 }

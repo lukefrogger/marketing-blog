@@ -28,6 +28,13 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allDatoCmsLandingPage {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
     `).then(result => {
       result.data.allDatoCmsSkill.edges.map(({ node: skill }) => {
@@ -54,6 +61,15 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/blog-post.js`),
           context: {
             slug: post.slug,
+          },
+        })
+      });
+      result.data.allDatoCmsLandingPage.edges.map(({ node: page }) => {
+        createPage({
+          path: `/${page.slug}`,
+          component: path.resolve(`./src/templates/landing-page.js`),
+          context: {
+            slug: page.slug,
           },
         })
       });
