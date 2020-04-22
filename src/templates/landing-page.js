@@ -9,7 +9,6 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 
 export default ( {data: {page, social, site}}) => {
 
-    console.log(social)
     const [form, setForm] = useState({});
     const [submitted, setSubmitted] = useState(false);
     
@@ -28,8 +27,6 @@ export default ( {data: {page, social, site}}) => {
     const handleSubmit = e => {
         e.preventDefault();
         const formDOM = e.target;
-        console.log(formDOM.getAttribute('name'));
-        console.log(form);
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -59,44 +56,51 @@ export default ( {data: {page, social, site}}) => {
                         Web Design
                     </div>
                 </div>
-                <form 
-                    name="500-deal" 
-                    className={`500-spw-deal contactForm text-white background`}
-                    method="POST"
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
-                    onSubmit={handleSubmit}
-                >
-                    <header>
-                        <h1>Begin your digital future by claiming your $500 website</h1>
-                    </header> 
-                    <div hidden>
-                        <label>
-                            Don’t fill this out or your a sucka:{' '}
-                            <input name="bot-field" onChange={handleChange} />
-                        </label>
+                { submitted == false ?
+                    <form 
+                        name="500-deal" 
+                        className={`500-spw-deal contactForm text-white background`}
+                        method="POST"
+                        data-netlify="true"
+                        data-netlify-honeypot="bot-field"
+                        onSubmit={handleSubmit}
+                    >
+                        <header>
+                            <h1>Begin your digital future by claiming your $500 website</h1>
+                        </header> 
+                        <div hidden>
+                            <label>
+                                Don’t fill this out or your a sucka:{' '}
+                                <input name="bot-field" onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className="field">
+                            <label htmlFor="name">Name</label>
+                            <input 
+                                type={'text'}
+                                name={'name'}
+                                onChange={handleChange}
+                                required={true} />
+                        </div>
+                        <div className="field">
+                            <label htmlFor="email">Email Address</label>
+                            <input 
+                                className="input"
+                                type={'email'}
+                                name={'email'}
+                                onChange={handleChange}
+                                required={true} />
+                        </div>
+                        <div className="field">
+                            <button className="button full-width solid-orange" type="submit">Claim Your Deal!</button>
+                        </div>
+                    </form>
+                    :
+                    <div className="form-submitted">
+                        <h3>Thank you! I'll be reaching out to you very soon.</h3>
                     </div>
-                    <div className="field">
-                        <label htmlFor="name">Name</label>
-                        <input 
-                            type={'text'}
-                            name={'name'}
-                            onChange={handleChange}
-                            required={true} />
-                    </div>
-                    <div className="field">
-                        <label htmlFor="email">Email Address</label>
-                        <input 
-                            className="input"
-                            type={'email'}
-                            name={'email'}
-                            onChange={handleChange}
-                            required={true} />
-                    </div>
-                    <div className="field">
-                        <button className="button full-width solid-orange" type="submit">Claim Your Deal!</button>
-                    </div>
-                </form>
+                }
+                
             </div>
             <div className="two-thirds">
                 <div className="social-items">
