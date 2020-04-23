@@ -106,11 +106,11 @@ export default ( {data: {page, social, site}}) => {
                 <div className="social-items">
                     {social.edges.map(({node: item }) => {
                         if(item.profileType == 'Facebook') {
-                        return <a key={item.url} href={item.url} target="_blank"><FontAwesomeIcon icon={faFacebookSquare} /></a>
+                        return <a key={item.url} href={item.url} target="_blank"><FontAwesomeIcon icon={faFacebookSquare} size="2x" /></a>
                         } else if (item.profileType == 'Phone') {
-                            return <a key={item.url} href={`tel:${item.url}`}><FontAwesomeIcon icon={faPhoneSquareAlt} /></a>
+                            return <a key={item.url} href={`${item.url}`}><FontAwesomeIcon icon={faPhoneSquareAlt} size="2x" /></a>
                         } else if(item.profileType == 'Email') {
-                        return <a key={item.url} href={`mailto:${item.url}`}><FontAwesomeIcon icon={faEnvelopeSquare} /></a>
+                        return <a key={item.url} href={`${item.url}`}><FontAwesomeIcon icon={faEnvelopeSquare} size="2x" /></a>
                         } else {
                             return <div>{JSON.stringify(item)}</div>
                         }
