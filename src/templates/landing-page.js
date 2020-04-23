@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelopeSquare, faPhoneSquareAlt, faShareAlt, faBullhorn, faSearchDollar, faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -48,14 +48,14 @@ export default ( {data: {page, social, site}}) => {
                 favicon={site.faviconMetaTags}
             />
             <div className="blue-background one-third">
-                <div className="brand">
+                <Link className="brand" to="/">
                     <div className="name">
                         Luke Frauhiger
                     </div>
                     <div className="type">
                         Web Design
                     </div>
-                </div>
+                </Link>
                 { submitted == false ?
                     <form 
                         name="500-deal" 
@@ -118,7 +118,7 @@ export default ( {data: {page, social, site}}) => {
                 </div>
                 <div className="wrapper">
                     <div className="value-prop white-background">
-                        <h1>A great website is the core of online business</h1>
+                        <h1>A great website is the core of an online business</h1>
                         <div className="line"></div>
                         <div className="values">
                             <div className="item"><FontAwesomeIcon icon={faShareAlt} size="lg"/> Connect you with your customers</div>
